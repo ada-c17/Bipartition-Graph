@@ -1,5 +1,13 @@
-# Can be used for BFS
-from collections import deque 
+def check_enemies(dislikes, dog, seen, parent):
+    seen.append(dog)
+    for enemy in dislikes[dog]:
+        if enemy not in seen:
+            return check_enemies(dislikes, enemy, seen, dog)
+        else:
+            if enemy != parent:
+                return False
+
+    return True
 
 def possible_bipartition(dislikes):
     """ Will return True or False if the given graph
@@ -8,5 +16,8 @@ def possible_bipartition(dislikes):
         Time Complexity: ?
         Space Complexity: ?
     """
-    pass
-
+    for dog in dislikes:
+        seen = []
+        if not check_enemies(dislikes, dog, seen, None):
+            return False
+    return True
