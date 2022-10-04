@@ -13,7 +13,7 @@ def possible_bipartition(dislikes):
         curr_color = visited[current]
         for neighbor in dislikes[current]:
             if neighbor not in visited:
-                visited[neighbor] = "blue" if curr_color == "green" else "green"
+                visited[neighbor] = 1 if curr_color == 0 else 0
                 queue.append(neighbor)
             else:
                 if curr_color == visited[neighbor]:
@@ -32,5 +32,5 @@ def possible_bipartition(dislikes):
 
 def start_new_queue(dislikes, visited):
     first_item = list(dislikes.keys())[0]
-    visited[first_item] = "green"
+    visited[first_item] = 0
     return [first_item]
