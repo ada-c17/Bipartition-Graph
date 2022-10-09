@@ -6,10 +6,8 @@ def possible_bipartition(dislikes):
     """ Will return True or False if the given graph
         can be bipartitioned without neighboring nodes put
         into the same partition.
-        Time Complexity: ?
-        Space Complexity: ?
-
-        Plan -> maybe make two lists and start by putting the first key in one and the values of that key in the other, then continue to separate it and check if 
+        Time Complexity: O(N+E) with N being nodes and E being edges
+        Space Complexity: O(N) with N being nodes
     """
     if len(dislikes) == 0:
         return True
