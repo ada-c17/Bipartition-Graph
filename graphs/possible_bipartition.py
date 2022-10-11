@@ -8,12 +8,11 @@ def possible_bipartition(dislikes):
         Time Complexity: ?
         Space Complexity: ?
     """
-    if not dislikes:
+    if not dislikes or len(dislikes) == 1:
         return True
         
     dogs_to_check = list(dislikes.keys())
-    if len(dislikes) == 1:
-            return True
+    
     first_dog = dogs_to_check[0]
     queue = [first_dog]
     dog_groups = {}
