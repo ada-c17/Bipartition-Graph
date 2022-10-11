@@ -18,7 +18,7 @@ def possible_bipartition(dislikes):
     dog_groups = {}
     dog_groups[first_dog] = 1
     
-    for i in range(1, len(dogs_to_check)):
+    for i in range(len(dogs_to_check)):
         if not queue and dogs_to_check[i] not in dog_groups:
             queue.append(dogs_to_check[i])
             dog_groups[dogs_to_check[i]] = 1
