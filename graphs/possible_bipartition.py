@@ -45,14 +45,3 @@ def possible_bipartition(dislikes):
             queue.pop(0)
 
     return True
-
-dislikes = {
-    "Fido": [],
-    "Rufus": ["James", "Scruffy"],
-    "James": ["Rufus", "Alfie"],
-    "Alfie": ["Rufus", "T-Bone"],
-    "T-Bone": ["Alfie", "Scruffy"],
-    "Scruffy": ["Rufus", "T-Bone"]
-}
-answer = possible_bipartition(dislikes)
-print(answer)
