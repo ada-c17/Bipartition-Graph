@@ -44,8 +44,6 @@ def possible_bipartition(dislikes):
                 return False
             queue.pop(0)
 
-    print(groups)
-
     return True
 
 dislikes = {
