@@ -1,9 +1,8 @@
 # Can be used for BFS
 from collections import deque 
 
-COLORS = ["red", "green"]
-
 def dfs(dislikes, current_node, painted_graph, current_color):
+    COLORS = ["red", "green"]
     neighbors = dislikes[current_node]
     next_color = (current_color + 1) % len(COLORS)
 
@@ -26,6 +25,7 @@ def possible_bipartition(dislikes):
         Time Complexity: ?
         Space Complexity: ?
     """
+    COLORS = ["red", "green"]
     painted_graph = {}
     current_color = 0
 
