@@ -66,28 +66,3 @@ def isBipartite(dislikes, item, visited, color):
     #     visited = []
     #     self.dfs_helper(first_item, visited, graph)
     #     return visited
-
-
-    #for key in dict
-    #is there anywhere the key can go?
-    #is there anywhere the values can go?
-    #what if we get it wrong with the second key?
-
-    #check if there are three interconnected nodes
-    #do a dfs on the adjacency dict
-    #if the max value is 3
-    #if we ever visit a dog we've already visited in a DFS if the count is more than +1\
-    # 
-    # IF TWO PEOPLE WHO DISLIKE EACHOTHER BOTH DISLIKE THE SAME PERSON, WE'RE SCREWED
-    # DISLIKE MEANS WE CANT BE IN THE SAME ROOM
-    # CANT BE IN THE SAME ROOM IF: DIRECTLY DISLIKE, OR, 
-    # If we're on the same chain, it means we'd have to be in the same room?  
-
-    # for any two who dislike eachother, do you have to make another partition
-    # for any two people who dislike, if the same person comes up on both sides of DFS, we are screwed?
-
-    # if there is a cycle with odd number of nodes
-    #do a DFS on adjacency dict
-    #store the names of the visited nodes
-    #if we ever get a neighbor that's been visited, that's a cycle
-    # check length of list
