@@ -41,7 +41,7 @@ Explanation: group1: `["Fido", "Nala", "Bruno"]`, group2: `["Cooper", "Spot"]`
 dislikes = {
             "Fido": [],
             "Nala": ["Cooper", "Spot"],
-            "Coooper": ["Nala", "Spot"],
+            "Cooper": ["Nala", "Spot"],
             "Spot": ["Nala", "Cooper"]
             }
 ```
