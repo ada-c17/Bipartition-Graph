@@ -5,7 +5,7 @@ def has_no_bad_cycle(cycle_counter_list, key, dislikes):
     # exits if the key is present in list => there is a cycle
     # AND
     # if the len of list(path) is odd => the cycle is NOT ok
-    if len(cy`cle_counter_list) % 2 != 0 and cycle_counter_list[0] == key:
+    if len(cycle_counter_list) % 2 != 0 and cycle_counter_list[0] == key:
         return False
     
     # exits if the key is present in list => there is a cycle
