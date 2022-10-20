@@ -16,10 +16,7 @@ def possible_bipartition(dislikes):
     result = True
     group_1 = []
     group_2 = []
-
-    # while stack:
-    #     current = stack.pop(0)
-    #     group_1.append(current)
+    
     for pet in dislikes:
         group_1.append(dislikes[pet])
         group_2.append(pet)
