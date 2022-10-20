@@ -26,7 +26,7 @@ Return `True` if and only if it is possible to split the dogs into two groups wh
 ``` python
 dislikes = { 
             "Fido": [],
-            "Nala": ["Cooper", "Spot"],
+            "Nala": ["Coper", "Spoto"],
             "Cooper": ["Nala", "Bruno"],
             "Spot": ["Nala"],
             "Bruno": ["Cooper"]
