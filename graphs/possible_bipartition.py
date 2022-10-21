@@ -2,10 +2,10 @@
 from collections import deque 
 
 
-class Graph:
-    def __init__(self, nodes):
-        self.adjlist = []
-        self.nodes = nodes
+# class Graph:
+#     def __init__(self, nodes):
+#         self.adjlist = []
+#         self.nodes = nodes
 
 def possible_bipartition(dislikes):
     """ Will return True or False if the given graph
