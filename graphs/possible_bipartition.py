@@ -56,10 +56,10 @@ def possible_bipartition(dislikes):
             if not dfs_helper(dogs, 2 if k == 1 else 1):
                 return False
         return True
-    
-    for n in range(i, num_dogs + 1):
-        if not dogs_a[n] and not dfs_helper(n, 1):
-            return False
-    return True
+        
+        for n in range(i, num_dogs + 1):
+            if not dogs_a[n] and not dfs_helper(n, 1):
+                return False
+        return True
 
 
