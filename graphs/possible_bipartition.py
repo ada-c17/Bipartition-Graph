@@ -1,4 +1,3 @@
-from __future__ import annotations
 # Can be used for BFS
 from collections import deque 
 from typing import Dict, List, Optional, Set
