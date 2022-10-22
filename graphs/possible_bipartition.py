@@ -1,48 +1,35 @@
 from __future__ import annotations
 # Can be used for BFS
 from collections import deque 
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set
 
 def possible_bipartition(dislikes: Dict[str, List[str]]) -> bool:
-    """ Will return True or False if the given graph
-        can be bipartitioned without neighboring nodes put
-        into the same partition.
-        Time Complexity: ?
-        Space Complexity: ?
-    """
     groups = {"a":set(), "b":set()}
-    store = deque(dislikes.keys())
+    queue = deque(dislikes.keys())
 
-    while store:
-        n = len(store)
+    while queue:
+        n = len(queue)
         for _ in range(n):
-            pup = store.popleft()
-            result = classify_pups(pup, set(dislikes[pup]), groups)
-            if result is False:
+            pup = queue.popleft()
+            if classify_pups(pup, set(dislikes[pup]),queue, groups) is False:
                 return False
-            elif result:
-                store.append(pup)
-        if store and len(store) == n:
-            pup = store.popleft()
+        if queue and len(queue) == n:
+            pup = queue.popleft()
             groups["a"].add(pup)
-            for d_pup in dislikes[pup]:
-                groups["b"].add(d_pup)
+            groups["b"] = groups["b"].union(set(dislikes[pup]))
     return True
 
-def classify_pups(pup: str, disliked_pups: set, groups: object) -> Optional[str | bool]:
+def classify_pups(pup: str, disliked_pups: Set, queue: deque, groups: Dict) -> Optional[bool]:
     if disliked_pups.intersection(groups["a"]):
         if disliked_pups.intersection(groups["b"]):
                 return False
         else:
             groups["b"].add(pup)
-            for d_pup in disliked_pups:
-                groups["a"].add(d_pup)
+            groups["a"] = groups["a"].union(disliked_pups)
     if pup not in groups["a"].union(groups["b"]):
         if disliked_pups.intersection(groups["b"]):
             groups["a"].add(pup)
-            for d_pup in disliked_pups:
-                groups["b"].add(d_pup)
+            groups["b"] = groups["b"].union(disliked_pups)
         else:
             # not ready to classify pup
-            return pup
-    return None
+            queue.append(pup)
