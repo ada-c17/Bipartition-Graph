@@ -3,8 +3,11 @@ from collections import deque
 from typing import Dict, List, Optional, Set
 
 def possible_bipartition(dislikes: Dict[str, List[str]]) -> bool:
-    groups = {"a":set(), "b":set()}
+    if not dislikes:
+        return True
     queue = deque(dislikes.keys())
+    first_pup = queue.popleft()
+    groups = {"a":set(first_pup), "b":set(dislikes[first_pup])}
 
     while queue:
         n = len(queue)
