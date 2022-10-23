@@ -1,6 +1,5 @@
 # Can be used for BFS
 from collections import deque
-from threading import currentThread 
 
 def possible_bipartition(dislikes):
     """ Will return True or False if the given graph
@@ -23,80 +22,20 @@ def possible_bipartition(dislikes):
     queue = [first_dog]
     visited = []
 
-    while queue:
-        current_dog = queue.pop(0)
-        visited.append(current_dog)
+    for dog in dislikes: 
+        while queue:
+            current_dog = queue.pop(0)
+            visited.append(current_dog)
 
-        if dislikes[current_dog]:
-            for frenemie in dislikes[current_dog]:
-                if groups[frenemie] == 0:
-                    groups[frenemie] = groups[current_dog] + 1
-                    queue.append(frenemie)
-                else:
-                    if groups[frenemie] == groups[current_dog]:
-                        return False
-        else:
-            for dog in dislikes:
-                if dog not in visited:
-                    queue.append(dog)
-    print(groups)
+            if dislikes[current_dog]:
+                for frenemie in dislikes[current_dog]:
+                    if groups[frenemie] == 0:
+                        groups[frenemie] = groups[current_dog] + 1
+                        queue.append(frenemie)
+                    else:
+                        if groups[frenemie] == groups[current_dog]:
+                            return False
+            
+        if dog not in visited:
+            queue.append(dog)
     return True
-
-
-    # queue = [first_dog]
-    # visited = []
-
-    # for dog in dislikes:
-    #     if dog not in visited:
-    #         queue.append(dog)
-    #         visited.append(dog)
-
-    # for enemy in dislikes:
-    #     print(dislikes[enemy])
-    # while queue:
-    #     current_dog = queue.pop(0)
-    #     print('current dog: ', current_dog)
-
-    #     for enemy in dislikes[dog]:
-    #         print('frenemie: ', enemy)
-    #         if enemy in groupA:
-    #             groupB.append(enemy)
-    #         groupA.append(enemy)
-
-    # print(visited)
-
-    # print(groupA, groupB)
-
-
-dislikes = { 
-            "Fido": [],
-            "Nala": ["Cooper", "Spot"],
-            "Cooper": ["Nala", "Bruno"],
-            "Spot": ["Nala"],
-            "Bruno": ["Cooper"]
-            }
-
-possible_bipartition(dislikes)
-
-'''
-returns true
-dislikes = { 
-            "Fido": [],
-            "Nala": ["Cooper", "Spot"],
-            "Cooper": ["Nala", "Bruno"],
-            "Spot": ["Nala"],
-            "Bruno": ["Cooper"]
-            }
-
-
-returns true
-dislikes = {
-    "Fido": ["Alfie", "Bruno"],
-    "Rufus": ["James", "Scruffy"],
-    "James": ["Rufus", "Alfie"],
-    "Alfie": ["Fido", "James"],
-    "T-Bone": ["Scruffy"],
-    "Scruffy": ["Rufus", "T-Bone"],
-    "Bruno": ["Fido"]
-    }
-'''
