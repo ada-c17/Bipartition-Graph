@@ -19,10 +19,10 @@ def possible_bipartition(dislikes):
             if len(dislikes[node]) == 0:
                 continue
             else:
-                stack = [node]
+                my_queue = [node]
                 # use bfs for checking
-                while stack:
-                    curr_node = stack.pop()
+                while my_queue:
+                    curr_node = my_queue.pop()
                     for dislike_dog in dislikes[curr_node]:
                         if dislike_dog in color_graph and color_graph[dislike_dog] == color_graph[curr_node]:
                             return False
@@ -31,7 +31,7 @@ def possible_bipartition(dislikes):
                         else:
                             # assign value for dislike dog if they not in color_graph and add it into queue
                             color_graph[dislike_dog] = (1 - color_graph[curr_node]) % 2
-                            stack.append(dislike_dog)
+                            my_queue.append(dislike_dog)
     return True
     
 
