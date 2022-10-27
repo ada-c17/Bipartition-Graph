@@ -1,3 +1,4 @@
+import pytest
 from graphs.possible_bipartition import possible_bipartition
 
 
