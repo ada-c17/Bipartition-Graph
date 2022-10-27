@@ -168,3 +168,24 @@ def test_will_return_false_for_disconnected_graph_which_cannot_be_bipartitioned(
 
     # Assert
     assert not answer
+
+def test_will_return_true_for_graph_with_even_nodes_in_cycle():
+    # Arrange
+    dislikes = {
+      "Ralph": ["Tony", "Fido", "Alfie", "Bruno", "Rufus"], 
+      "Tony": ["Ralph", "James", "Scruffy", "Brisket"], 
+      "Fido": ["Ralph", "Scruffy", "T-Bone", "James", "Brisket"], 
+      "Scruffy": ["Bruno", "Rufus", "Fido", "Tony"], 
+      "Bruno": ["Scruffy", "Brisket", "T-Bone", "James", "Ralph"], 
+      "Brisket": ["Bruno", "Rufus", "Alfie", "Fido", "Tony"], 
+      "James": ["Tony", "Bruno", "Alfie", "Rufus", "Fido"], 
+      "Rufus": ["Scruffy", "Brisket", "T-Bone", "James", "Ralph"], 
+      "Alfie": ["Ralph", "T-Bone", "James", "Brisket"], 
+      "T-Bone": ["Bruno", "Fido", "Rufus", "Alfie"],
+    }
+
+    # Act
+    answer = possible_bipartition(dislikes)
+
+    # Assert
+    assert answer
