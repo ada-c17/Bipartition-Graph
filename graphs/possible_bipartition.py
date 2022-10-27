@@ -41,11 +41,11 @@ def possible_bipartition(dislikes):
             else:
                 partition = "1"
 
-    return True  
+    return True
 
 
 
-dis = {
+test_1 = {
     "Fido": [],
     "Rufus": ["James", "Scruffy"],
     "James": ["Rufus", "Alfie"],
@@ -54,7 +54,7 @@ dis = {
     "Scruffy": ["Rufus", "T-Bone"]
 }
 
-dis = {
+test_2 = {
     "Fido": ["Alfie", "Bruno"],
     "Rufus": ["James", "Scruffy"],
     "James": ["Rufus", "Alfie"],
@@ -64,4 +64,4 @@ dis = {
     "Bruno": ["Fido"]
 }
 
-print(possible_bipartition(dis))
+# print(possible_bipartition(test_2))
