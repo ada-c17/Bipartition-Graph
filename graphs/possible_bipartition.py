@@ -8,5 +8,33 @@ def possible_bipartition(dislikes):
         Time Complexity: ?
         Space Complexity: ?
     """
-    pass
+    if len(dislikes) == 0:
+        return True
+
+    groups = {key: 0 for key in dislikes.keys()}
+
+    first_dog = list(dislikes.keys())[0]
+    groups[first_dog] = 1
+    queue = deque([first_dog])
+    visited = set()
+
+    while queue:
+        curr_dog = queue.popleft()
+        visited.add(curr_dog)
+
+        if dislikes[curr_dog]:
+            for disliked_dog in dislikes[curr_dog]:
+                if groups[disliked_dog] == 0:
+                    groups[disliked_dog] = groups[curr_dog] + 1
+                    queue.append(disliked_dog)
+                else:
+                    if groups[disliked_dog] == groups[curr_dog]:
+                        return False
+
+        if len(queue) == 0:
+            for dog in dislikes:
+                if dog not in visited:
+                    queue.append(dog)
+                    break
+    return True
 
