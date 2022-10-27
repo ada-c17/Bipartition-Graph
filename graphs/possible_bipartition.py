@@ -33,28 +33,33 @@ def possible_bipartition(dislikes):
 ## create a dictionary, keys of the dictionary are dogs names
 ## values of the dictionary are dogs who fight
     # dogs_dictionary = {}
-    num_dogs = len(dislikes)
-
-    for a,b in dislikes:
-        dogs_dictionary[a].append(b)
-        dogs_dictionary[b].append(a)
     
-    dogs_dictionary = {i:None for i in range(1, num_dogs+1)}
+    # num_dogs = len(dislikes)
+
+    # for a,b in dislikes:
+    #     dogs_dictionary[a].append(b)
+    #     dogs_dictionary[b].append(a)
+    
+    dogs_dictionary = {i:None for i in dislikes.keys()}
 
     def dfs_helper(node, dog_friends):
-        if not dislikes[node]:
+        if not dogs_dictionary[node]:
             #mark the node of dog passed in search
-            dislikes[node] = dog_friends
-        else:
-            return dislikes[node] == dog_friends
+            dogs_dictionary[node] = dog_friends
+        # else:
+        #     return dislikes[node] == dog_friends
     
         for dogs in dislikes[node]:
-            if not dfs_helper(dogs, 2 if i == 1 else 1):
-                return False
+            if dogs_dictionary[dogs]:
+                if dogs_dictionary[dogs] == dog_friends:
+                    return False
+            else:
+                if not dfs_helper(dogs, 2 if dog_friends == 1 else 1):
+                    return False
         return True
         
-    for n in range(1, num_dogs + 1):
-        if not dislikes[n] and not dfs_helper(n, 1):
+    for dog in dislikes.keys():
+        if not dislikes[dog] and not dfs_helper(dog, 1):
             return False
     return True
 
