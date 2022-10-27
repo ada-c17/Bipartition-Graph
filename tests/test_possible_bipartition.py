@@ -17,7 +17,7 @@ def test_example_1():
     # Assert
     assert answer
 
-def test_example_"Rufus"():
+def test_example_2():
     dislikes = {
       "Fido": [],
       "Rufus": ["James", "Alfie"],
