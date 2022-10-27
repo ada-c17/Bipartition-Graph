@@ -1,5 +1,5 @@
 # Can be used for BFS
-from collections import deque 
+from collections import deque
 
 def possible_bipartition(dislikes):
     """ Will return True or False if the given graph
@@ -8,5 +8,21 @@ def possible_bipartition(dislikes):
         Time Complexity: ?
         Space Complexity: ?
     """
-    pass
+    doggo = {}
+    def dfs(dog):
+        for dislikeDog in dislikes[dog]:
+            if dislikeDog in doggo:
+                if doggo[dislikeDog] == doggo[dog]:
+                    return False
+            else:
+                doggo[dislikeDog] = 1 - doggo[dog]
+                if not dfs(dislikeDog):
+                    return False
+        return True
 
+    for dog in dislikes.keys():
+        if dog not in doggo:
+            doggo[dog] = 0
+            if not dfs(dog):
+                return False
+    return True
