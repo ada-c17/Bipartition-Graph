@@ -18,14 +18,14 @@ def possible_bipartition(dislikes):
     color = {}
 
     #run a DFS starting at each key, to check if that graph is bipartite
-    for each_key in dislikes:
+    for dog_name in dislikes:
 
         #make starting dicts
-        for item in dislikes:
-            visited[item] = False
-            color[item] = False
+        for dog in dislikes:
+            visited[dog] = False
+            color[dog] = False
 
-        first_key = each_key
+        first_key = dog_name
         visited[first_key] = True
         color[first_key] = False
         if not isBipartite(dislikes, first_key, visited, color):
@@ -36,15 +36,15 @@ def possible_bipartition(dislikes):
 
 def isBipartite(dislikes, item, visited, color):
 
-    for name in dislikes[item]:
+    for dog in dislikes[item]:
         # if the name hasn't been visited, recurse on its dislikes
-        if visited[name] == False:
-            visited[name] = True
-            color[name] = not color[item]
-            if not isBipartite(dislikes, name, visited, color):
+        if visited[dog] == False:
+            visited[dog] = True
+            color[dog] = not color[item]
+            if not isBipartite(dislikes, dog, visited, color):
                 return False
         # if the name already has been visisted and had to be set to the same color, its not bipartite      
-        elif color[name] == color[item]:
+        elif color[dog] == color[item]:
             return False
     return True
 
