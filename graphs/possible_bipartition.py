@@ -22,7 +22,7 @@ def possible_bipartition(dislikes):
                     if neighbor not in group: 
                         stack.append(neighbor)
                         group[neighbor] = 1 - group[current_dog] 
-                    elif group[neighbor] == group[dog]:
+                    elif group[neighbor] == group[current_dog]:
                         return False
     
     return True
