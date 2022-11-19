@@ -1,14 +1,14 @@
-# Can be used for BFS
-from collections import deque 
-
-
 def possible_bipartition(dislikes):
+    """ Will return True or False if the given graph
+    can be bipartitioned without neighboring nodes put
+    into the same partition.
+    Time Complexity: ?
+    Space Complexity: ?
+    """
     if len(dislikes) <= 2:
         return True
 
-    visited = {}
-    for dog in dislikes.keys():
-        visited[dog] = False
+    visited = {dog : False for dog in dislikes.keys()}
     
     for dog in visited.keys():
         queue = [dog]
@@ -18,7 +18,6 @@ def possible_bipartition(dislikes):
                 if not visited[dog2]:
                     visited[dog2] = 2 if (visited[dog1] == 1) else 1
                     queue.append(dog2)
-                else:
-                    if visited[dog1] == visited[dog2]:
-                        return False
+                elif visited[dog1] == visited[dog2]:
+                    return False
     return True
