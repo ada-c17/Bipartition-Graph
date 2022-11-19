@@ -3,7 +3,7 @@ from collections import deque
 
 
 def possible_bipartition(dislikes):
-    if not dislikes or len(dislikes) <= 2:
+    if len(dislikes) <= 2:
         return True
 
     visited = {}
@@ -16,7 +16,7 @@ def possible_bipartition(dislikes):
             dog1 = queue.pop()
             for dog2 in dislikes[dog1]:
                 if not visited[dog2]:
-                    visited[dog2] = 'blue' if (visited[dog1] == 'red') else 'red'
+                    visited[dog2] = 2 if (visited[dog1] == 1) else 1
                     queue.append(dog2)
                 else:
                     if visited[dog1] == visited[dog2]:
