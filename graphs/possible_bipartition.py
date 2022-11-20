@@ -9,9 +9,10 @@ def possible_bipartition(dislikes):
         return True
 
     visited = {dog : False for dog in dislikes.keys()}
-    
-    for dog in visited.keys():
-        queue = [dog]
+
+    for dog in dislikes.keys():
+        if not visited[dog]:
+            queue = [dog]
         while queue:
             dog1 = queue.pop()
             for dog2 in dislikes[dog1]:
