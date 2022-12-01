@@ -142,3 +142,9 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/Bipartition-Graph.iml
+*.xml
