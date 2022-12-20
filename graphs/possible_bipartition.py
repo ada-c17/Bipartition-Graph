@@ -8,5 +8,25 @@ def possible_bipartition(dislikes):
         Time Complexity: ?
         Space Complexity: ?
     """
-    pass
+    checked = {}
+    queue = []
+    for dog in dislikes.keys():
+        if len(dislikes[dog]) > 0:
+            if not dog in checked:
+                checked[dog] = 0  
+                queue.append(dog)     
+            while queue:
+                rival = queue.pop(0)
+                for neighbour in dislikes[rival]:
+                    if not neighbour in checked:
+                        if checked[rival] == 0:
+                            checked[neighbour] = 1
+                        else:
+                            checked[neighbour] = 0
+                        queue.append(neighbour)
+                    else:
+                        if checked[rival] == checked[neighbour]:
+                            return False
+    return True
+
 
