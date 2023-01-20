@@ -38,17 +38,3 @@ def possible_bipartition(dislikes):
             q.append(dog)
 
     return True
-
-
-dislikes = {
-    "Fido": ["Alfie", "Bruno"],
-    "Rufus": ["James", "Scruffy"],
-    "James": ["Rufus", "Alfie"],
-    "Alfie": ["Fido", "James", "T-Bone"],
-    "T-Bone": ["Alfie", "Scruffy"],
-    "Scruffy": ["Rufus", "T-Bone"],
-    "Bruno": ["Fido"]
-}
-
-possible_bipartition(dislikes)
-
