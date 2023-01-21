@@ -1,5 +1,5 @@
 # Can be used for BFS
-from collections import deque 
+from collections import deque
 
 def possible_bipartition(dislikes):
     """ Will return True or False if the given graph
@@ -7,6 +7,7 @@ def possible_bipartition(dislikes):
         into the same partition.
         Time Complexity: ?
         Space Complexity: ?
+        HOWDY, STRANGER!
     """
     pass
 
