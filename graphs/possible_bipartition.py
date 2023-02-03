@@ -28,7 +28,7 @@ def possible_bipartition(dislikes):
 
 def bipartition_helper(dislikes, dog_key, visited, color):
     for dog in dislikes[dog_key]:
-        # check if it's visited or not, 
+        # check if it's visited or not
         if not visited[dog]:
             visited[dog] = True
             # if it's not visited, change the color to opposite of the dog_key
